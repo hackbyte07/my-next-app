@@ -6,7 +6,9 @@ export default function Home() {
   return (
     <div>
       Welcome to notes
-      <Link href={"/notes"}>notes</Link>
+      <Link className="btn btn-active btn-primary" href={"/notes"}>
+        notes
+      </Link>
     </div>
   );
 }
