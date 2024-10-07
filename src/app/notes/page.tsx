@@ -1,5 +1,6 @@
 import React from "react";
 import { addNotes, getAllNotes } from "./actions";
+import Link from "next/link";
 
 const NotesHome = async () => {
   const notes = await getAllNotes();
@@ -35,12 +36,16 @@ const NotesHome = async () => {
       </form>
       <div>
         {notes?.map((note) => (
-          <div key={note.id} className="card bg-base-100 w-96 shadow-xl">
+          <Link
+            href={`/notes/${note.id}`}
+            key={note.id}
+            className="card bg-base-100 w-96 shadow-xl"
+          >
             <div className="card-body">
               <h2 className="card-title">{note.title}</h2>
               <p>{note.body}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
